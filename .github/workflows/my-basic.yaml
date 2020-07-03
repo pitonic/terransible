@@ -31,7 +31,7 @@ jobs:
     - name: List current folder
       run : ls -la
 
-- name: Lint Ansible Playbook
+    - name: Lint Ansible Playbook
       # replace "master" with any valid ref
       uses: ansible/ansible-lint-action@master
       with:
