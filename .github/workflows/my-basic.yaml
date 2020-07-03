@@ -1,0 +1,50 @@
+# This is a basic workflow to help you get started with Actions
+
+name: My-Github-Basic-test
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  my_step1:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Print Hello Message in Testing
+      run : echo "Hello World from Testing job"
+    
+    - name: Execure few commands
+      run : |
+        echo "Hello Message1"
+        echo "Hello Message2"
+    
+    - name: List current folder
+      run : ls -la
+   
+    - name: Git clone my repo
+      uses: actions/checkout@v1   
+  
+    - name: List current folder
+      run : ls -la
+
+  my_testing-2:  
+    runs-on: ubuntu-latest
+    needs: [my_step1]
+    env:
+      VAR1 : "This is Job Level Variable1"
+      VAR2 : "This is Job Lebel Variable2"
+    
+    steps:
+    - name: Print Hello Message in Deploy
+      run : echo "Hello World from Deploy job"
+ 
+    - name: Lets test some packages if they are here 1
+      run : aws --version
+
+    - name: Lets test some packages if they are here 2
+      run : zip --version
+      
