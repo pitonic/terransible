@@ -31,6 +31,13 @@ jobs:
     - name: List current folder
       run : ls -la
 
+    - name: Git clone my repo
+      uses: actions/checkout@v2   
+  
+    - name: List current folder
+      run : ls -la
+
+
     - name: Lint Ansible Playbook
       # replace "master" with any valid ref
       uses: ansible/ansible-lint-action@master
