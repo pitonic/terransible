@@ -32,5 +32,5 @@ jobs:
       
     - name: Execure few commands
       working-directory: course_scripts
-        run: |
+      run: |
           ansible-lint wordpress.yml
